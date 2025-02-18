@@ -34,13 +34,12 @@
     <script defer src="js/js.js"></script>
 </head>
 <body>
-<div class="phpinfo-container">
     <?php echo $phpinfo; ?>
-</div>
-  <script>
+
+    <script>
     function replaceActiveText() {
       const elements = document.querySelectorAll('td.v');
-
+    
       elements.forEach(element => {
         if (element.textContent === 'active') {
           const parent = element.parentNode;
@@ -51,8 +50,8 @@
         }
       });
     }
-
+    
     window.addEventListener('DOMContentLoaded', replaceActiveText);
-  </script>
+    </script>
 </body>
 </html>
