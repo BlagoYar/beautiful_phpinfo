@@ -1,30 +1,36 @@
-body {
-    background: #181818 url('https://blagoyar-tishina.inf.ua/img/phpinfo.png') !important;
-    background-repeat: repeat-x !important;
-    background-repeat: repeat-y !important;
-    background-attachment: fixed !important;
-    font-weight: normal !important;
-    /*  font-family: Arial, sans-serif;*/
-    margin: 0;
-    padding: 0;
-    -webkit-box-shadow: 0px 7px 74px 19px rgba(0, 0, 0, 1);
-    -moz-box-shadow: 0px 7px 74px 19px rgba(0, 0, 0, 1);
-    box-shadow: 0px 7px 74px 19px rgba(0, 0, 0, 1);
+html {
+    background: #181818 !important;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px; /* Высота тени */
+    -webkit-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8) !important;
+    -moz-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8) !important;
+    box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8) !important;
+    z-index: 9999;
+    pointer-events: none; /* Чтобы не мешало кликам */
+}
+.phpinfo-container::before {
+    content: "";
+    display: block;
+    height: 20px; /* Размер отступа */
 }
 .phpinfo-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px;
+    width: 80%;
     border-radius: 10px;
-    position: relative;
-    background: #333 !important;
 }
 .center {
-    position: absolute;
-    max-width: 1100px;
-    padding: 0;
-    margin: 70px -10px;
-    left: 30%;
+    width: 80%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    margin-left: auto;
+    margin-right: auto;
     background: #333 !important;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
@@ -75,10 +81,15 @@ pre {
     font-family:'Ubuntu', sans-serif !important;
 }
 table {
-    width:1100px !important;
     border-radius:5px !important;
     border-spacing:8px !important;
     border-collapse:separate !important;
+    table-layout: fixed;
+    width: 100%;
+
+}
+.center table:nth-child(3), .center table tr.h th, td {
+    width: 100%;
 }
 hr {
     border: none;
@@ -194,9 +205,24 @@ h2 {
     text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000 !important;
     padding-left: 10px !important;
 }
+
+table td.e + td.v:only-of-type {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: table-cell;
+    font-size: 110% !important;
+}
+
+/* Для случая, когда их два, оставляем прежнюю ширину */
+table td.e + td.v + td.v {
+    width: 35.2% !important;
+    font-size: 110% !important;
+}
+
 td.v {
-    width:800px !important;
-    word-break:break-all !important;
+    font-size: 110% !important;
+    word-break: break-word !important; /* Перенос слов */
+    white-space: normal !important; /* Позволяет перенос */
     font-weight:bold !important;
     outline:1px dashed #000;
     outline-offset:-2px;
@@ -224,7 +250,7 @@ tr.v > td > a {
     margin: 45px 0 0 0;
 }
 td.e {
-    width:300px !important;
+    width:48% !important;
     color:#fff !important;
     background-color:#151515 !important;
     outline:1px dashed #444;
@@ -232,11 +258,11 @@ td.e {
     border-radius:5px !important;
     box-shadow:0 0 3px #000 !important;
     text-align: left !important;
-    font-size: 80% !important;
+    font-size: 90% !important;
 }
 .p {
     text-align:center !important;
-    margin: 30px -130px 0px 700px !important;
+    margin: 2.5% 0% 0% 81.4% !important;
     border:none !important;
     border-radius:5px !important;
     font-size:170% !important;
@@ -245,16 +271,72 @@ td.e {
     text-shadow:0px 0px 5px #000,0 -1px 4px #000,-1px 0 4px #000,0px 0px 10px #000 !important;
 }
 
-@media only screen and (min-width: 300px) and (max-width: 600px) {
+@media (hover: none) and (pointer: coarse) {
+
+body {
+    background: #181818 !important;
+    font-weight: normal !important;
+    /*  font-family: Arial, sans-serif;*/
+    margin: 0;
+    padding: 0;
+}
 
 .phpinfo-container {
-    max-width: 600px;
-    margin: 20px;
-    position: absolute;
+    width: 92%;
+    border-radius: 10px;
+    position: relative;
+
 }
 .center {
-    position: absolute;
-    padding: 0;
-    margin: 70px -1000px;
+    margin-top: 200px !important;
+    width: 92%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #333 !important;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
 }
+    table td.e + td.v {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 110% !important;
+        display: table-cell !important;
+    }
+
+    table td.e + td.v + td.v {
+        font-size: 110% !important;
+        width: 35.2% !important;
+    }
+
+    td.v {
+        font-size: 110% !important;
+        word-break: break-word !important;
+        font-weight: bold !important;
+        outline: 1px dashed #000 !important;
+        outline-offset: -2px !important;
+        border-radius: 5px !important;
+        background-color: rgba(215, 215, 215, .9) !important;
+        color: #000 !important;
+        text-align: center !important;
+        box-shadow: 0 0 3px #000 !important;
+    }
+    table {
+    table-layout: fixed;
+    width: 100%;
+        border-radius: 5px !important;
+        border-spacing: 8px !important;
+        border-collapse: separate !important;
+    }
+    .p {
+        text-align:center !important;
+        margin: 30px 20px 0px 700px !important;
+        border:none !important;
+        border-radius:5px !important;
+        font-size:170% !important;
+        color:#F07427 !important;
+        text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000 !important;
+        text-shadow:0px 0px 5px #000,0 -1px 4px #000,-1px 0 4px #000,0px 0px 10px #000 !important;
+    }
 }
