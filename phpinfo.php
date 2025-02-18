@@ -1,4 +1,4 @@
-/*<?php
+<?php
     define('VALID_TOKEN', getenv('VALID_TOKEN_PHPINFO'));
 
     function unauthorizedResponse() {
@@ -22,7 +22,7 @@
 
     // Завершение буферизации вывода
     ob_end_clean();
-?>*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
