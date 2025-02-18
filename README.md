@@ -1,4 +1,4 @@
-<h1 align="center" color="#AFFFAF">Beautiful phpinfo()</h1>
+<h1 align="center" color="#AFFFAF">Beauy and Pretty phpinfo()</h1>
 
 Красивое оформление для буферизированного вывода `<?php phpinfo(); ?>`
 
