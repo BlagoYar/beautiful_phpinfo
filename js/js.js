@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Замена логотипа
+
+// ---------------------------------
+// Замена логотипа
     const oldLogo = document.querySelector('img[src*="data:image/png;base64,"]');
     if (oldLogo) {
         const newLogo = document.createElement('img');
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 // ---------------------------------
+// Замена слова active
 function replaceActiveText() {
   const elements = document.querySelectorAll('td.v');
 
@@ -69,6 +72,7 @@ if (document.readyState === 'loading') {
 }
 
 // ---------------------------------
+// Замена 0 и 1
 const numberMappings = {
     "0": "disabled-int",
     "1": "enabled-int"
@@ -106,6 +110,7 @@ function traverseNodesForNumbers(node) {
 traverseNodesForNumbers(document.body);
 
 // ---------------------------------
+// Замена слов
     const wordMappings = {
         "enabled": "enabled-text",
         "Enabled": "enabled-text",
@@ -114,14 +119,13 @@ traverseNodesForNumbers(document.body);
         "Off": "disabled-text",
         "On": "enabled-text",
         "no value": "no-text",
-        "no": "no-text",
         "available": "available-text"
     };
 
     function replaceWordsWithSpan(node) {
         const text = node.textContent;
         // Улучшенное регулярное выражение:
-        const regex = new RegExp(`\\b(?:enabled|Enabled|disabled|Disabled|Off|On|no value|no|available)\\b`, 'gi');
+        const regex = new RegExp(`\\b(?:enabled|Enabled|disabled|Disabled|Off|On|no value|available)\\b`, 'gi');
 
         const newContent = text.replace(regex, match => {
             const span = document.createElement('span');
@@ -152,4 +156,13 @@ traverseNodesForNumbers(document.body);
     }
 
     traverseNodesForWords(document.body);
+
+    document.querySelectorAll("td.v").forEach(el => {
+        el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                node.textContent = node.textContent.replace(/\bno\b/g, 'no');
+            }
+        });
+        el.innerHTML = el.innerHTML.replace(/\bno\b(?!-)/g, '<span class="no-text">no</span>');
+    });
 });
