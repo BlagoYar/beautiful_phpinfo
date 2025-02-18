@@ -1,4 +1,4 @@
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Замена логотипа
     const oldLogo = document.querySelector('img[src*="data:image/png;base64,"]');
     if (oldLogo) {
@@ -12,48 +12,144 @@
         parent.replaceChild(newLogo, oldLogo);
     }
 
-    // Функция для создания элемента span с заданным классом
-    // function createSpanWithText(text, className) {
-    //   const span = document.createElement('span');
-    //   span.className = className;
-    //   span.textContent = text;
-    //   return span;
-    // }
+// ---------------------------------
+function replaceActiveText() {
+  const elements = document.querySelectorAll('td.v');
 
-    // Функция для замены текста в элементах
-  //   function replaceText(node, searchValue, className) {
-  //     if (node.nodeType === Node.TEXT_NODE) {
-  //       const text = node.nodeValue;
-  //       const regex = new RegExp(`(?:\\s|^)(${searchValue})(?:\\s|$)`, 'g');
-  //       const fragments = text.split(regex);
-  //       if (fragments.length > 1) {
-  //         const fragment = document.createDocumentFragment();
-  //         fragments.forEach((part, index) => {
-  //           if (index % 2 === 1) {
-  //             fragment.appendChild(createSpanWithText(part, className));
-  //           } else {
-  //             fragment.appendChild(document.createTextNode(part));
-  //           }
-  //         });
-  //         node.parentNode.replaceChild(fragment, node);
-  //       }
-  //     } else {
-  //       Array.from(node.childNodes).forEach(childNode => replaceText(childNode, searchValue, className));
-  //     }
-  //   }
+  elements.forEach(element => {
+    if (element.textContent.trim() === 'active') {
+      const span = document.createElement('span');
+      span.classList.add('enabled-text');
+      span.textContent = 'active';
 
-  //   const tdElements = document.querySelectorAll('td.v, td.v i');
-  //   tdElements.forEach(td => {
-  //     replaceText(td, 'enabled', 'enabled-text');
-  //     replaceText(td, 'Enabled', 'enabled-text');
-  //     replaceText(td, 'active', 'enabled-text');
-  //     replaceText(td, 'disabled', 'disabled-text');
-  //     replaceText(td, 'Disabled', 'disabled-text');
-  //     replaceText(td, 'Off', 'disabled-text');
-  //     replaceText(td, 'On', 'enabled-text');
-  //     replaceText(td, 'no value', 'no-text');
-  //     replaceText(td, '\\bno\\b', 'no-text');
-  //     replaceText(td, '\\b0\\b', 'disabled-int');
-  //     replaceText(td, '\\b1\\b', 'enabled-int');
-  //   });
+      // Заменяем текстовый узел внутри td на span
+      element.innerHTML = ''; // Очищаем содержимое td
+      element.appendChild(span); // Добавляем span внутрь td
+    }
   });
+}
+
+// Запускаем функцию после загрузки DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceActiveText);
+} else {
+    replaceActiveText(); // DOMContentLoaded уже сработал
+}
+
+function replaceFontWithClass() {
+    const fontElements = document.querySelectorAll('font[style*="color: #"]');
+
+    fontElements.forEach(element => {
+        const style = element.getAttribute('style');
+        const colorCode = style.match(/color: (#[\da-fA-F]{3,6})/)[1];
+        const colorName = getColorName(colorCode); // Получаем английское название цвета
+        const className = `${colorName}-${colorCode.replace('#', '')}`; // Формируем имя класса
+
+        element.classList.add(className);
+        element.removeAttribute('style');
+
+        // Создаем CSS правило
+        const styleElement = document.createElement('style');
+        styleElement.textContent = `.${className} { color: ${colorCode} !important; }`;
+        document.head.appendChild(styleElement);
+    });
+}
+
+function getColorName(hexColor) {
+    // Здесь можно добавить более сложную логику для преобразования hex в название цвета.
+    // Пока что, для простоты, будем возвращать просто "color"
+    return "color"; // В дальнейшем можно улучшить
+}
+
+// Запускаем функцию после загрузки DOM
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', replaceFontWithClass);
+} else {
+    replaceFontWithClass(); // DOMContentLoaded уже сработал
+}
+
+// ---------------------------------
+const numberMappings = {
+    "0": "disabled-int",
+    "1": "enabled-int"
+};
+
+function replaceNumbersWithSpan(node) {
+    const text = node.textContent;
+    const regex = new RegExp(`(?:^|\\s)\\b(${Object.keys(numberMappings).join('|')})\\b(?:$|\\s)`, 'g');
+    const newContent = text.replace(regex, (match, p1) => {
+        const span = document.createElement('span');
+        span.className = numberMappings[p1];
+        span.textContent = p1;
+        return span.outerHTML;
+    });
+
+    const parentNode = node.parentNode;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = newContent;
+    while (tempDiv.firstChild) {
+        parentNode.insertBefore(tempDiv.firstChild, node);
+    }
+    parentNode.removeChild(node);
+}
+
+function traverseNodesForNumbers(node) {
+    node.childNodes.forEach(child => {
+        if (child.nodeType === Node.ELEMENT_NODE) {
+            traverseNodesForNumbers(child);
+        } else if (child.nodeType === Node.TEXT_NODE) {
+            replaceNumbersWithSpan(child);
+        }
+    });
+}
+
+traverseNodesForNumbers(document.body);
+
+// ---------------------------------
+    const wordMappings = {
+        "enabled": "enabled-text",
+        "Enabled": "enabled-text",
+        "disabled": "disabled-text",
+        "Disabled": "disabled-text",
+        "Off": "disabled-text",
+        "On": "enabled-text",
+        "no value": "no-text",
+        "no": "no-text",
+        "available": "available-text"
+    };
+
+    function replaceWordsWithSpan(node) {
+        const text = node.textContent;
+        // Улучшенное регулярное выражение:
+        const regex = new RegExp(`\\b(?:enabled|Enabled|disabled|Disabled|Off|On|no value|no|available)\\b`, 'gi');
+
+        const newContent = text.replace(regex, match => {
+            const span = document.createElement('span');
+            span.className = wordMappings[match];
+            span.textContent = match;
+            return span.outerHTML;
+        });
+
+        const parentNode = node.parentNode;
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = newContent;
+        while (tempDiv.firstChild) {
+            parentNode.insertBefore(tempDiv.firstChild, node);
+        }
+        parentNode.removeChild(node);
+    }
+
+    function traverseNodesForWords(node) {
+        node.childNodes.forEach(child => {
+            if (child.nodeType === Node.ELEMENT_NODE) {
+                if (child.tagName !== 'TH') {
+                    traverseNodesForWords(child);
+                }
+            } else if (child.nodeType === Node.TEXT_NODE) {
+                replaceWordsWithSpan(child);
+            }
+        });
+    }
+
+    traverseNodesForWords(document.body);
+});
