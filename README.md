@@ -1,7 +1,10 @@
 <h1 align="center" color="#AFFFAF">Beautiful phpinfo()</h1>
 
 <hr/>
+
+
 Красивое оформление для буферизированного вывода `<?php phpinfo(); ?>'
+
 
 > [!TIP]
 > Если добавить в     `/etc/php/[version]/fpm/pool.d/www.conf` переменную окружения
