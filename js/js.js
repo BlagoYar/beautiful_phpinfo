@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const oldLogo = document.querySelector('img[src*="data:image/png;base64,"]');
     if (oldLogo) {
         const newLogo = document.createElement('img');
-        newLogo.src = 'phplogo.svg';
+        newLogo.src = 'img/phplogo.svg';
         newLogo.alt = 'PHP Logo';
         newLogo.className = 'custom-logo';
         newLogo.style.width = '150px';
