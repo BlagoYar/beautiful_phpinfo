@@ -1,6 +1,6 @@
-<h1 align="center" style="color:#AFFFAF">Beautiful phpinfo()</h1>
+<h1 align="center" font-color="#AFFFAF">Beautiful phpinfo()</h1>
 Красивое оформление для буферизированного вывода `<?php phpinfo(); ?>`
-
+<hr/>
 
 
 > [!TIP]
