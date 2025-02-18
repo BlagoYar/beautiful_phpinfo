@@ -32,9 +32,6 @@
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/js.js"></script>
-    <script defer src="js/js_active.js"></script>
-    <script defer src="js/js_num.js"></script>
-    <script defer src="js/js_word.js"></script>
 </head>
 <body>
 <div class="phpinfo-container">
