@@ -1,6 +1,12 @@
 # Beautiful phpinfo()
 Красивое оформление для буферизированного вывода phpinfo()
 
+Если добавить в /etc/php/[version]/fpm/pool.d/www.conf
+env[VALID_TOKEN_PHPINFO] = 'Здесь ваш токен, он же набор из n-го количества символов'
+то вы защитите страницу. При попытке доступа к ней будет ошибка 401. Чтобы попасть в неё, нужно набрать htpps://your-domain.com/phpinfo.php?token=ВашТокен
+
+Если защита не нужна, удалите php блок кода.
+
 ![ScrShot_1](https://github.com/user-attachments/assets/35b6f09c-8cc0-4a66-903f-72e325723cb7)
 
 
