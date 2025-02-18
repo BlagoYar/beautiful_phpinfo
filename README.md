@@ -1,6 +1,7 @@
 # Beautiful phpinfo()
 Красивое оформление для буферизированного вывода phpinfo()
-
+> [!TIP]
+> sdfsdfs
 
 Если добавить в     `/etc/php/[version]/fpm/pool.d/www.conf` переменную окружения
 
