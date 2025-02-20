@@ -24,13 +24,10 @@
 > Есть ещё недочёты мелкие.
 
 
-![1](https://github.com/user-attachments/assets/45d6313d-4036-42c6-b025-618f6d2abe91)
+![3](https://github.com/user-attachments/assets/58b0cab8-cfde-4f78-bcb9-ca0dfe176618)
 
 
-
-![2](https://github.com/user-attachments/assets/c7cf7abb-bf6f-408a-9323-ccc6cf4abc1a)
-
-
-![3](https://github.com/user-attachments/assets/1775b768-3a6d-46ce-a721-5a04430195fd)
+![2](https://github.com/user-attachments/assets/e9973aca-74e2-43a4-91cd-0a03c6d49cff)
 
 
+![1](https://github.com/user-attachments/assets/563d1d87-cd91-4b94-aae1-e403b7736af2)
