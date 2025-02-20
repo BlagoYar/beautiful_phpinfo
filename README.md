@@ -23,10 +23,11 @@
 > Оформление текста нужно было делать путём замены через js, поэтому костыльно сделано.
 > Есть ещё недочёты мелкие.
 
-![ScrShot_1](https://github.com/user-attachments/assets/35b6f09c-8cc0-4a66-903f-72e325723cb7)
+
+![3](https://github.com/user-attachments/assets/4c5df607-8e25-4ef4-8b61-f8212eaedf9d)
 
 
-![ScrShot_2](https://github.com/user-attachments/assets/3ab8d34f-5c47-478c-8dfc-335496956e5b)
+![2](https://github.com/user-attachments/assets/712f357a-b151-43f2-a94f-4467febb4845)
 
 
-![ScrShot_3](https://github.com/user-attachments/assets/d71a592d-8459-49c1-9e4a-aa6e1ef33dc2)
+![1](https://github.com/user-attachments/assets/45d6313d-4036-42c6-b025-618f6d2abe91)
