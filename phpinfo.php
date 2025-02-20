@@ -3,55 +3,36 @@
 
     function unauthorizedResponse() {
         header('HTTP/1.1 401 Unauthorized');
-        echo("ERROR 401");
+        echo("Error 401 - Unauthorized");
         exit;
     }
 
     if ($_GET['token'] !== VALID_TOKEN) {
         unauthorizedResponse();
-}
+    }
 
-    // Начало буферизации вывода
-    ob_start();
-
-    // Вызов phpinfo() для захвата его вывода в буфер
-    phpinfo();
-
-    // Получение содержимого буфера
-    $phpinfo = ob_get_contents();
-
-    // Завершение буферизации вывода
-    ob_end_clean();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.1">
-    <title>Beautiful PHP Info</title>
-    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/js.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom PHP Info</title>
+    <link rel="stylesheet" href="/css/php_out.css" type="text/css">
+    <link rel="shortcut icon" href="/imgs/php_out_favicon.png" type="image/png">
+    <script defer src="/js/php_out.js"></script>
 </head>
 <body>
-    <?php echo $phpinfo; ?>
+    <?php
 
-    <script>
-    function replaceActiveText() {
-      const elements = document.querySelectorAll('td.v');
-    
-      elements.forEach(element => {
-        if (element.textContent === 'active') {
-          const parent = element.parentNode;
-          const span = document.createElement('span');
-          span.classList.add('enabled-text');
-          span.textContent = 'active';
-          parent.replaceChild(span, element);
-        }
-      });
-    }
-    
-    window.addEventListener('DOMContentLoaded', replaceActiveText);
-    </script>
+        ob_start();
+        phpinfo();
+        $phpinfo = ob_get_clean();
+
+        $phpinfo = preg_replace('#<style.*?>.*?</style>#is', '', $phpinfo);
+
+        echo $phpinfo;
+
+    ?>
 </body>
 </html>
