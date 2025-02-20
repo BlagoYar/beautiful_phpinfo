@@ -33,10 +33,10 @@
 ![2](https://github.com/user-attachments/assets/e9973aca-74e2-43a4-91cd-0a03c6d49cff)
 
 
-
 <details>
  <summary>Скриншоты со смартфона</summary>
  
+ <div style="text-align: center">
  <img src="https://github.com/user-attachments/assets/1643c223-a714-46ba-90a8-6a020d271425" height="400">
  
   
@@ -47,6 +47,7 @@
  
  
  <img src="https://github.com/user-attachments/assets/626dcfae-f83d-4e2d-a631-4d07f48f2d63" height="400">
+</div>
 
 
 </details>
