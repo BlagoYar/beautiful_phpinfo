@@ -298,9 +298,9 @@ td.e {
 
 @media screen and (hover: none) and (pointer: coarse) {
     body::before {
-        -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.8) !important;
-        -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.8) !important;
-        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.8) !important;
+        -webkit-box-shadow: 0px 10px 25px 15px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 15px 50px 20px rgba(0, 0, 0, 0.8);
         z-index: 9999;
         pointer-events: none; /* Чтобы не мешало кликам */
     }
@@ -317,5 +317,10 @@ td.e {
         -webkit-box-shadow: 0px 10px 12px 7px rgba(0, 0, 0, 0.8);
         -moz-box-shadow: 0px 10px 12px 7px rgba(0, 0, 0, 0.8);
         box-shadow: 0px 10px 12px 7px rgba(0, 0, 0, 0.8);
+    }
+    .logo-text {
+        top: 15px;
+        right: 15px;
+        font-size: 8px;
     }
 }
