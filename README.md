@@ -35,13 +35,13 @@
 
 <details>
  <summary>Скриншоты со смартфона</summary>
- 
+<center>
 <table>
   <tr>
-    <th><center>Заголовок 1</center></th>
-    <th><center>Заголовок 2</center></th>
-    <th><center>Заголовок 3</center></th>
-    <th><center>Заголовок 4</center></th>
+    <th><center></center></th>
+    <th><center></center></th>
+    <th><center></center></th>
+    <th><center></center></th>
   </tr>
   <tr>
     <td><center><img src="https://github.com/user-attachments/assets/1643c223-a714-46ba-90a8-6a020d271425" height="400"></center></td>
@@ -50,4 +50,5 @@
     <td><center><img src="https://github.com/user-attachments/assets/626dcfae-f83d-4e2d-a631-4d07f48f2d63" height="400"></center></td>
   </tr>
 </table>
+</center>
 </details>
