@@ -40,24 +40,14 @@
   <tr>
     <th><center>Заголовок 1</center></th>
     <th><center>Заголовок 2</center></th>
+    <th><center>Заголовок 3</center></th>
+    <th><center>Заголовок 4</center></th>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/1643c223-a714-46ba-90a8-6a020d271425" height="400"></td>
-    <td>Текст 2</td>
-    <td>Текст 2</td>
-    <td>Текст 2</td>
+    <td><center><img src="https://github.com/user-attachments/assets/1643c223-a714-46ba-90a8-6a020d271425" height="400"></center></td>
+    <td><center><img src="https://github.com/user-attachments/assets/0028120f-cf3a-43bb-ae74-ae16643c389d" height="400"></center></td>
+    <td><center><img src="https://github.com/user-attachments/assets/297fb2d5-ab15-41b9-bd03-997b4c7c4cac" height="400"></center></td>
+    <td><center><img src="https://github.com/user-attachments/assets/626dcfae-f83d-4e2d-a631-4d07f48f2d63" height="400"></center></td>
   </tr>
 </table>
-
- 
-  
- <img src="https://github.com/user-attachments/assets/0028120f-cf3a-43bb-ae74-ae16643c389d" height="400">
- 
- 
- <img src="https://github.com/user-attachments/assets/297fb2d5-ab15-41b9-bd03-997b4c7c4cac" height="400">
- 
- 
- <img src="https://github.com/user-attachments/assets/626dcfae-f83d-4e2d-a631-4d07f48f2d63" height="400">
-
-
 </details>
