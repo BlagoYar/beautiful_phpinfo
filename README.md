@@ -32,8 +32,10 @@
 
 ![2](https://github.com/user-attachments/assets/e9973aca-74e2-43a4-91cd-0a03c6d49cff)
 
+
+
 <details>
- <summary>Скриншшоты со смартфона</summary>
+ <summary>Скриншоты со смартфона</summary>
 [![На смартфонах][1]][1]
  
 ![4](https://github.com/user-attachments/assets/0028120f-cf3a-43bb-ae74-ae16643c389d)
