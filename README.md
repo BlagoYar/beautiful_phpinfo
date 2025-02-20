@@ -24,10 +24,12 @@
 > Есть ещё недочёты мелкие.
 
 
+![1](https://github.com/user-attachments/assets/45d6313d-4036-42c6-b025-618f6d2abe91)
+
+
 ![3](https://github.com/user-attachments/assets/4c5df607-8e25-4ef4-8b61-f8212eaedf9d)
 
 
 ![2](https://github.com/user-attachments/assets/712f357a-b151-43f2-a94f-4467febb4845)
 
 
-![1](https://github.com/user-attachments/assets/45d6313d-4036-42c6-b025-618f6d2abe91)
