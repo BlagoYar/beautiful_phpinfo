@@ -38,7 +38,7 @@
  <summary>Скриншоты со смартфона</summary>
 [![На смартфонах][1]][1]
  
-![4](https://github.com/user-attachments/assets/0028120f-cf3a-43bb-ae74-ae16643c389d)
+![4](https://github.com/user-attachments/assets/0028120f-cf3a-43bb-ae74-ae16643c389d) {:height="400px"}
 
 
 ![3](https://github.com/user-attachments/assets/297fb2d5-ab15-41b9-bd03-997b4c7c4cac)
