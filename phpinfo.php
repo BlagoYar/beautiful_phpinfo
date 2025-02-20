@@ -3,7 +3,13 @@
 
     function unauthorizedResponse() {
         header('HTTP/1.1 401 Unauthorized');
+
+        // If you want to give a message rather than a page as a response.
         echo("Error 401 - Unauthorized");
+        
+        // If you want to give a page rather than a message as a response.
+        //readfile("/usr/share/nginx/html/401.html");
+        
         exit;
     }
 
