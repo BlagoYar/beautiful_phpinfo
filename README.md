@@ -35,7 +35,7 @@
 
 <details>
  <summary>Скриншоты со смартфона</summary>
-<center>
+
 <table>
   <tr>
     <th><center></center></th>
@@ -50,5 +50,5 @@
     <td><center><img src="https://github.com/user-attachments/assets/626dcfae-f83d-4e2d-a631-4d07f48f2d63" height="400"></center></td>
   </tr>
 </table>
-</center>
+
 </details>
