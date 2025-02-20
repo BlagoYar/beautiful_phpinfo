@@ -4,42 +4,54 @@ html {
 body::before {
     content: "";
     position: fixed;
-    top: -10px;
+    top: -11px;
     left: 0;
     width: 100%;
     height: 10px; /* Высота тени */
-    -webkit-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8) !important;
-    -moz-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8) !important;
-    box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8) !important;
+    -webkit-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 20px 50px 30px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 30px 100px 40px rgba(0, 0, 0, 0.8);
     z-index: 9999;
     pointer-events: none; /* Чтобы не мешало кликам */
 }
-.phpinfo-container::before {
-    content: "";
-    display: block;
-    height: 20px; /* Размер отступа */
+a, img {
+    transition-duration: 0.1s !important;
+    transition-property:a, opacity, color, text-shadow !important;
+    transition-timing-function: ease-in-out !important;
+    -webkit-transition: all linear 0.5s !important;
+    -moz-transition: all linear 0.5s !important;
+    -ms-transition: all linear 0.5s !important;
+    -o-transition: all linear 0.5s !important;
+    transition: all linear 0.5s !important;
 }
-.phpinfo-container {
-    width: 80%;
-    border-radius: 10px;
+.logo-text {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 12px;
+    font-family:'Ubuntu', sans-serif !important;
+    color: rgba(255,95,95, 0.5);
+    font-weight: bold;
+    text-decoration: none !important;
+}
+.logo-text:hover {
+    color: rgba(255,95,95, 1) !important;
+    text-shadow:0 0 1px #FD6437 !important;
+    z-index:999999 !important;
 }
 .center {
     width: 80%;
     max-width: 100%;
     box-sizing: border-box;
-    margin-top: 50px !important;
-    margin-bottom: 50px !important;
+    margin-top: 10% !important;
+    margin-bottom: 5% !important;
     margin-left: auto;
     margin-right: auto;
     background: #333 !important;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
-}
-.center>table:nth-child(1) {
-    border-bottom:3px solid #000;
-    margin-bottom:30px;
+    border-radius: 20px 20px 10px 10px;
+    box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.8);
 }
 ::selection {
   color: #D93939 !important;
@@ -63,15 +75,11 @@ h1::-moz-selection, h2::-moz-selection, a::-moz-selection {
     background:#9999CC !important;
     color:#B8B8B8 !important;
 }
-tr.h a {
-    float: inline-start;
-    margin: -30px 0 -35px 70px;
-}
-a:link {
+a:link:not(.logo-text) {
     color: #ACDB1A !important;
     background:none !important;
 }
-a:visited {
+a:visited:not(.logo-text) {
     color: #89B800 !important;
     background:none !important;
 }
@@ -81,15 +89,16 @@ pre {
     font-family:'Ubuntu', sans-serif !important;
 }
 table {
-    border-radius:5px !important;
     border-spacing:8px !important;
     border-collapse:separate !important;
     table-layout: fixed;
     width: 100%;
-
 }
-.center table:nth-child(3), .center table tr.h th, td {
+.center table:nth-child(3) {
     width: 100%;
+}
+.center table tr.h th, td {
+    width: 98.5%;
 }
 hr {
     border: none;
@@ -187,9 +196,12 @@ td {
     border-radius:5px !important;
     vertical-align:middle !important;
     padding: 10px !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  max-width: 100% !important;
 }
 h1:not(.p) {
-    font-size:170% !important;
+    font-size:150% !important;
     color:#F07427 !important;
     background-color:#222 !important;
     text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000 !important;
@@ -200,27 +212,40 @@ h2:last-child {
     text-align: center !important;
 }
 h2 {
-    font-size:170% !important;
+    font-size:150% !important;
     color:#FFFF87 !important;
     text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000 !important;
     padding-left: 10px !important;
+    text-align: center;
 }
-
-table td.e + td.v:only-of-type {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: table-cell;
-    font-size: 110% !important;
+.center table:first-child {
+    border-collapse: separate !important; /* Позволяет скруглить углы */
+    border-spacing: 0 !important; /* Убирает промежутки между ячейками */
+    overflow: hidden !important; /* Чтобы скругление применялось к `thead` и `tbody` */
+    background: #111;
+/*    padding-bottom: 3%;*/
+    border-bottom: 6px solid #000;
+    border-radius: 20px 20px 0 0 !important;
+    margin-bottom: 5%;
+    transform: translateY(0px);
+    -webkit-box-shadow: 0px 20px 25px 15px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 20px 25px 15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 20px 25px 15px rgba(0, 0, 0, 0.8);
+    outline: 1.5px dashed #555;
+    outline-offset: -8px;
 }
-
-/* Для случая, когда их два, оставляем прежнюю ширину */
-table td.e + td.v + td.v {
-    width: 35.2% !important;
-    font-size: 110% !important;
+.custom-logo {
+    width: 15vw; /* 50% ширины окна */
+    margin-top: 3%;
 }
-
+tr.h a img {
+    opacity:0.6;
+}
+tr.h a:hover img {
+    opacity:1;
+}
 td.v {
-    font-size: 110% !important;
+    font-size: 90% !important;
     word-break: break-word !important; /* Перенос слов */
     white-space: normal !important; /* Позволяет перенос */
     font-weight:bold !important;
@@ -252,91 +277,45 @@ tr.v > td > a {
 td.e {
     width:48% !important;
     color:#fff !important;
+    line-height: 1.4;
     background-color:#151515 !important;
     outline:1px dashed #444;
     outline-offset:-4px;
     border-radius:5px !important;
     box-shadow:0 0 3px #000 !important;
     text-align: left !important;
-    font-size: 90% !important;
+    font-size: 80% !important;
 }
 .p {
-    text-align:center !important;
-    margin: 2.5% 0% 0% 81.4% !important;
+/*    float: right;
+    margin: 0% 44% 0% 42% !important;*/
+    padding: 20px 0 0 0;
     border:none !important;
-    border-radius:5px !important;
-    font-size:170% !important;
+    font-size:1.5vw !important;
     color:#F07427 !important;
-    text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000 !important;
-    text-shadow:0px 0px 5px #000,0 -1px 4px #000,-1px 0 4px #000,0px 0px 10px #000 !important;
+    text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000, 0px 0px 5px #000,0 -1px 4px #000,-1px 0 4px #000,0px 0px 10px #000 !important;
 }
 
-@media (hover: none) and (pointer: coarse) {
-
-body {
-    background: #181818 !important;
-    font-weight: normal !important;
-    /*  font-family: Arial, sans-serif;*/
-    margin: 0;
-    padding: 0;
-}
-
-.phpinfo-container {
-    width: 92%;
-    border-radius: 10px;
-    position: relative;
-
-}
-.center {
-    margin-top: 200px !important;
-    width: 92%;
-    max-width: 100%;
-    box-sizing: border-box;
-    background: #333 !important;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
-    -webkit-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 0px 0px 10px 8px rgba(0, 0, 0, 0.6);
-}
-    table td.e + td.v {
-        width: 100% !important;
-        max-width: 100% !important;
-        font-size: 110% !important;
-        display: table-cell !important;
+@media screen and (hover: none) and (pointer: coarse) {
+    body::before {
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.8) !important;
+        -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.8) !important;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.8) !important;
+        z-index: 9999;
+        pointer-events: none; /* Чтобы не мешало кликам */
     }
-
-    table td.e + td.v + td.v {
-        font-size: 110% !important;
-        width: 35.2% !important;
+    .center {
+        box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.8);
+        -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.8);
+        width: calc(100% - 20px) !important; /* Учитываем оба отступа */
+        box-sizing: border-box !important;
+        margin: 10% auto 5% auto !important; /* Автоматически центрируем */
+        background: #333 !important;
     }
-
-    td.v {
-        font-size: 110% !important;
-        word-break: break-word !important;
-        font-weight: bold !important;
-        outline: 1px dashed #000 !important;
-        outline-offset: -2px !important;
-        border-radius: 5px !important;
-        background-color: rgba(215, 215, 215, .9) !important;
-        color: #000 !important;
-        text-align: center !important;
-        box-shadow: 0 0 3px #000 !important;
-    }
-    table {
-    table-layout: fixed;
-    width: 100%;
-        border-radius: 5px !important;
-        border-spacing: 8px !important;
-        border-collapse: separate !important;
-    }
-    .p {
-        text-align:center !important;
-        margin: 30px 20px 0px 700px !important;
-        border:none !important;
-        border-radius:5px !important;
-        font-size:170% !important;
-        color:#F07427 !important;
-        text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000 !important;
-        text-shadow:0px 0px 5px #000,0 -1px 4px #000,-1px 0 4px #000,0px 0px 10px #000 !important;
+    .center table:first-child {
+        -webkit-box-shadow: 0px 10px 12px 7px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0px 10px 12px 7px rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 10px 12px 7px rgba(0, 0, 0, 0.8);
     }
 }
