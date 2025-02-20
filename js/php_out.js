@@ -1,18 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
-
+    document.querySelectorAll("td.e").forEach(function (cell) {
+        cell.innerHTML = cell.innerHTML.replace(/_/g, "_<wbr>");
+    });
 // ---------------------------------
 // Замена логотипа
-    const oldLogo = document.querySelector('img[src*="data:image/png;base64,"]');
-    if (oldLogo) {
-        const newLogo = document.createElement('img');
-        newLogo.src = 'img/phplogo.svg';
-        newLogo.alt = 'PHP Logo';
-        newLogo.className = 'custom-logo';
-        newLogo.style.width = '150px';
-        newLogo.style.height = 'auto';
-        const parent = oldLogo.parentElement;
+const oldLogo = document.querySelector('img[src*="data:image/png;base64,"]');
+if (oldLogo) {
+    const newLogo = document.createElement('img');
+    newLogo.src = '/imgs/phplogo.svg';
+    newLogo.alt = 'PHP Logo';
+    newLogo.className = 'custom-logo';
+    newLogo.style.width = '15vw';
+    newLogo.style.height = 'auto';
+
+    const parent = oldLogo.parentElement;
+
+    if (parent.tagName.toLowerCase() === 'a') {
         parent.replaceChild(newLogo, oldLogo);
+
+        // Проверяем, есть ли уже ссылка, если нет — добавляем
+        if (!parent.nextElementSibling || !parent.nextElementSibling.classList.contains('logo-text')) {
+            const textLink = document.createElement('a');
+            textLink.href = 'https://github.com/BlagoYar/beautiful_phpinfo';
+            textLink.textContent = 'Designed by BlagoYar';
+            textLink.className = 'logo-text';
+            textLink.target = '_blank'; // Открывать в новой вкладке
+            textLink.rel = 'noopener noreferrer';
+
+            parent.parentElement.insertBefore(textLink, parent.nextSibling);
+        }
     }
+}
+
 
 // ---------------------------------
 // Замена слова active
