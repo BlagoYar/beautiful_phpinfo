@@ -46,7 +46,7 @@
         <link rel="stylesheet" href="<?php echo $cssFile; ?>" type="text/css">
     <?php endif; ?>
     <link rel="stylesheet" href="/css/php_out.css" type="text/css">
-    <link rel="shortcut icon" href="/imgs/php_out_favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/img/php_out_favicon.png" type="image/png">
     <script defer src="/js/php_out.js"></script>
 </head>
 <body>
