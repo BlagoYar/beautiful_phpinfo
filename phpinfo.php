@@ -3,7 +3,7 @@
 
     function unauthorizedResponse() {
         header('HTTP/1.1 401 Unauthorized');
-        readfile("/usr/share/nginx/html/401.html");
+        echo("Error 401 Unauthorized");
         exit;
     }
 
