@@ -17,17 +17,14 @@
 > Если защита не нужна, удалите соответсвующий блок кода php.
 
 
-> [!NOTE]
-> _ПС. Полупрофессиональный любитель. Есть предложения/пожелания, пишите._
+![1](https://github.com/user-attachments/assets/df9733d2-f56e-4585-bd20-c14d3a228573)
 
 
-![3](https://github.com/user-attachments/assets/6db22661-c4ff-4e02-8943-f78a45294453)
+![3](https://github.com/user-attachments/assets/ad4c301f-6a87-40fe-997f-a2cd3264da37)
 
 
-![2](https://github.com/user-attachments/assets/6120da37-a4b5-4e74-8bd4-e17d7f8e2ad5)
+![2](https://github.com/user-attachments/assets/64d1b555-1a02-458e-bde7-84104091acd1)
 
-
-![1](https://github.com/user-attachments/assets/22534481-1457-4fe5-a3ca-09ecb0e470b2)
 
 
 <details>
