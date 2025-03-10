@@ -1,4 +1,5 @@
 <?php
+// -----------------------------------------------------------
     # Проверка токена как есть
     // define('VALID_TOKEN', getenv('VALID_TOKEN_PHPINFO'));
 
@@ -19,23 +20,24 @@
     # echo your-secret-token > token.txt
     # CertUtil -hashfile token.txt SHA256
 
-    define('NGINX_ERROR',       getenv('NGINX_ERROR'));
+//------------------------------------------------------------
+    // define('NGINX_ERROR',       getenv('NGINX_ERROR'));
 
-    if (empty($_GET['token'])) {
-        http_response_code(401);
-        // Отдать страницу ошибки в виде файла - укажите переменную в www.conf (по умолчанию), которая содержит путь к файлу
-        readfile(NGINX_ERROR . '401.html');
-        // или
-        // echo('Ошибка 401 - Unauthorized');
-        exit;
-    }
-    $token = $_GET['token'];
-    $expectedHash = getenv('VALID_TOKEN_PHPINFO');
-    if (!$expectedHash || hash('sha256', $token) !== $expectedHash) {
-        http_response_code(401);
-        readfile(NGINX_ERROR . '401.html');
-        exit;
-    }
+    // if (empty($_GET['token'])) {
+    //     http_response_code(401);
+    //     // Отдать страницу ошибки в виде файла - укажите переменную в www.conf (по умолчанию), которая содержит путь к файлу
+    //     readfile(NGINX_ERROR . '401.html');
+    //     // или
+    //     // echo('Ошибка 401 - Unauthorized');
+    //     exit;
+    // }
+    // $token = $_GET['token'];
+    // $expectedHash = getenv('VALID_TOKEN_PHPINFO');
+    // if (!$expectedHash || hash('sha256', $token) !== $expectedHash) {
+    //     http_response_code(401);
+    //     readfile(NGINX_ERROR . '401.html');
+    //     exit;
+    // }
 
     # Проверка User Agent для отдачи CSS файла с корректировками для смартфонов
     function getUserAgent() {
