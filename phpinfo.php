@@ -1,36 +1,62 @@
 <?php
-    define('VALID_TOKEN', getenv('VALID_TOKEN_PHPINFO'));
+    # Проверка токена как есть
+    // define('VALID_TOKEN', getenv('VALID_TOKEN_PHPINFO'));
 
-    function unauthorizedResponse() {
-        header('HTTP/1.1 401 Unauthorized');
-        echo("Error 401 Unauthorized");
+    // function unauthorizedResponse() {
+    //     header('HTTP/1.1 401 Unauthorized');
+    //     readfile("/usr/share/nginx/html/404.html");
+    //     exit;
+    // }
+
+    // if ($_GET['token'] !== VALID_TOKEN) {
+    //     unauthorizedResponse();
+    // }
+
+    ## Проверка токена через хэш
+    ## Создать:
+    # echo -n "your-secret-token" | sha256sum
+    ## В Windows через cmd:
+    # echo your-secret-token > token.txt
+    # CertUtil -hashfile token.txt SHA256
+
+    define('NGINX_ERROR',       getenv('NGINX_ERROR'));
+
+    if (empty($_GET['token'])) {
+        http_response_code(401);
+        // Отдать страницу ошибки в виде файла - укажите переменную в www.conf (по умолчанию), которая содержит путь к файлу
+        readfile(NGINX_ERROR . '401.html');
+        // или
+        // echo('Ошибка 401 - Unauthorized');
+        exit;
+    }
+    $token = $_GET['token'];
+    $expectedHash = getenv('VALID_TOKEN_PHPINFO');
+    if (!$expectedHash || hash('sha256', $token) !== $expectedHash) {
+        http_response_code(401);
+        readfile(NGINX_ERROR . '401.html');
         exit;
     }
 
-    if ($_GET['token'] !== VALID_TOKEN) {
-        unauthorizedResponse();
-    }
-
+    # Проверка User Agent для отдачи CSS файла с корректировками для смартфонов
     function getUserAgent() {
         return $_SERVER['HTTP_USER_AGENT'];
     }
-
     function isMobile() {
         $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
         if (preg_match('/(iPhone|iPad|iPod|Android.*Mobile|Windows Phone|BlackBerry|IEMobile|Opera Mini)/i', $userAgent)) {
-            return true;  // Это мобильное устройство
+            return true;
         }
-
         return false;
     }
+    $cssFile = isMobile() ? '/css/php_smart.css' : '/css/php_out.css';
 
-    $cssFile = isMobile() ? '/res/css/php_smart.css' : '/res/css/php_out.css';
-
+    # Перехват вывода для очистки стилей и "шапки" HTML по умолчанию
     ob_start();
     phpinfo();
     $phpinfo = ob_get_clean();
 
+    # Убираем логотип по умолчанию для вставки своего через JS
     $phpinfo = preg_replace('#<a href="http://www.php.net/"><img [^>]*src="[^"]*"[^>]*></a>#is','<a href="http://www.php.net/">',$phpinfo);
     $phpVersion = PHP_VERSION;
 ?>
@@ -41,13 +67,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>phpinfo by BlagoYar | PHP v<?php echo $phpVersion; ?></title>
-    <meta name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE" />
+    <meta http-equiv="Cache-Control" name="ROBOTS" content="NOINDEX,NOFOLLOW,NOARCHIVE,NOIMAGEINDEX,NO-CACHE,NOSNIPPET" />
     <?php if (isMobile()): ?>
         <link rel="stylesheet" href="<?php echo $cssFile; ?>" type="text/css">
     <?php endif; ?>
-    <link rel="stylesheet" href="css/php_out.css" type="text/css">
-    <link rel="shortcut icon" href="img/php_out_favicon.png" type="image/png">
-    <script defer src="js/php_out.js"></script>
+    <link rel="stylesheet" href="/css/php_out.css" type="text/css">
+    <link rel="shortcut icon" href="/imgs/php_out_favicon.png" type="image/png">
+    <script defer src="/js/php_out.js"></script>
 </head>
 <body>
     <?php
@@ -63,6 +89,7 @@
             $phpinfo
         );
 
+        # Добавляем/заменяем теги с ключевыми словами для раскраски включеных модулей и т.д.
         $replacements = [
             '/<td class="v">available, disabled <\/td>/' => '<td class="v"><span class="v available-text">available</span>, <span class="v disabled-text">disabled</span></td>',
             '/<td class="v">available <\/td>/' => '<td class="v"><span class="v available-text">available</span></td>',
