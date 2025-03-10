@@ -54,4 +54,14 @@
     th {
         font-size: 1em !important;
     }
-}
+
+    .buttons button {
+        padding: 1.3vw 0 !important;
+        font-size: 2.1vw !important;
+        opacity: 1 !important;
+        color: #aaa !important;
+    }
+    .buttons button:hover {
+        opacity: 1;
+        background: #222 !important;
+    }
