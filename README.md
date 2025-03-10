@@ -21,14 +21,13 @@
 > _ПС. Полупрофессиональный любитель. Есть предложения/пожелания, пишите._
 
 
-
-![1](https://github.com/user-attachments/assets/563d1d87-cd91-4b94-aae1-e403b7736af2)
-
-
-![3](https://github.com/user-attachments/assets/58b0cab8-cfde-4f78-bcb9-ca0dfe176618)
+![3](https://github.com/user-attachments/assets/6db22661-c4ff-4e02-8943-f78a45294453)
 
 
-![2](https://github.com/user-attachments/assets/e9973aca-74e2-43a4-91cd-0a03c6d49cff)
+![2](https://github.com/user-attachments/assets/6120da37-a4b5-4e74-8bd4-e17d7f8e2ad5)
+
+
+![1](https://github.com/user-attachments/assets/22534481-1457-4fe5-a3ca-09ecb0e470b2)
 
 
 <details>
