@@ -4,20 +4,16 @@ document.addEventListener("DOMContentLoaded", function() {
         cell.innerHTML = cell.innerHTML.replace(/_/g, "_<wbr>");
     });
 
-    // ---------------------------------
-    // Замена логотипа
+    // Замена логотипа (остается без изменений)
     const linkElement = document.querySelector('a[href="http://www.php.net/"]');
     const versionHeader = document.querySelector('h1.p');
 
-    // Если ссылка и заголовок <h1> найден
     if (linkElement && versionHeader) {
-        // Создаем новый элемент <img>
         const newLogo = document.createElement('img');
-        newLogo.src = '/res/imgs/phplogo.svg';
+        newLogo.src = '/imgs/phplogo.svg';
         newLogo.alt = 'PHP Logo';
         newLogo.className = 'php-logo';
 
-        // Вставляем новый элемент <img> внутрь ссылки <a>
         linkElement.appendChild(newLogo);
 
         const clonedHeader = versionHeader.cloneNode(true);
@@ -36,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function() {
             clonedHeader.insertAdjacentElement('afterend', textLink);
         }
     }
-    // ---------------------------------
-    // Кнопки для перемещения по странице
+
+    // Кнопки для перемещения по странице (с исправлением)
     const buttonsContainer = document.createElement('div');
     buttonsContainer.className = 'buttons';
 
@@ -52,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
     let hideTimeout;
     let hasScrolled = false;
 
-    // Функция показа кнопок (только после первого скролла)
     function showButtons() {
         if (!hasScrolled) {
             hasScrolled = true;
@@ -62,41 +57,36 @@ document.addEventListener("DOMContentLoaded", function() {
         resetHideTimeout();
     }
 
-    // Функция скрытия кнопок через 3 секунды
     function resetHideTimeout() {
         clearTimeout(hideTimeout);
         hideTimeout = setTimeout(() => buttonsContainer.classList.remove('visible'), 3000);
     }
 
-    // Останавливаем исчезновение при наведении
     buttonsContainer.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
     buttonsContainer.addEventListener('mouseleave', resetHideTimeout);
 
-    // Функция плавной прокрутки
-    function smoothScrollTo(targetY, duration = 1000) {
-        const startY = window.scrollY;
-        const distance = targetY - startY;
+    function smoothScrollTo(targetPosition) {
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 3000;
         let startTime = null;
 
-        function animationStep(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const elapsedTime = currentTime - startTime;
-            const progress = Math.min(elapsedTime / duration, 1);
-            const easing = progress < 0.5
-                ? 2 * progress * progress
-                : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-
-            window.scrollTo(0, startY + distance * easing);
-
-            if (elapsedTime < duration) {
-                requestAnimationFrame(animationStep);
-            }
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easeOutQuad(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
         }
 
-        requestAnimationFrame(animationStep);
+        function easeOutQuad(t, b, c, d) {
+            t /= d;
+            return -c * t * (t - 2) + b;
+        }
+
+        requestAnimationFrame(animation);
     }
 
-    // Обработчики кнопок
     document.getElementById('btnTop').addEventListener('click', () => {
         showButtons();
         smoothScrollTo(0);
@@ -116,16 +106,13 @@ document.addEventListener("DOMContentLoaded", function() {
         smoothScrollTo(document.body.scrollHeight);
     });
 
-    // Показываем кнопки при прокрутке
     window.addEventListener('scroll', showButtons);
 
-    // Скрываем кнопки при загрузке
     window.addEventListener('load', () => {
         buttonsContainer.classList.remove('visible');
-        updateButtonWidth(); // Устанавливаем ширину сразу
+        updateButtonWidth();
     });
 
-    // Функция установки ширины кнопок по `.center`
     function updateButtonWidth() {
         const center = document.querySelector('.center');
         if (center) {
@@ -134,39 +121,42 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Обновляем ширину при изменении окна
     window.addEventListener('resize', updateButtonWidth);
     updateButtonWidth();
 
-    // Фиксированное положение кнопок при прокрутке
+    // ***  Исправленный код для позиционирования кнопок ***
     const center = document.querySelector('.center');
-
     if (center) {
+        const buttonsContainer = document.querySelector('.buttons'); // Получаем ссылку на buttonsContainer
+
+        let cachedRect;
+        let scheduled = false;
+
         function updateButtonPosition() {
-            const rect = center.getBoundingClientRect();
+            cachedRect = center.getBoundingClientRect(); // Кэшируем rect
+
             const windowHeight = window.innerHeight;
+            const newBottom = (cachedRect.bottom + 20 <= windowHeight) ? `${windowHeight - cachedRect.bottom}px` : '20px';
 
-            if (rect.bottom + 20 <= windowHeight) {
-                buttonsContainer.style.bottom = `${windowHeight - rect.bottom}px`;
-            } else {
-                buttonsContainer.style.bottom = '20px';
+            buttonsContainer.style.bottom = newBottom;
+            buttonsContainer.classList.toggle('at-bottom', cachedRect.bottom + 20 <= windowHeight);
+        }
+
+        function scheduleUpdate() {
+            if (!scheduled) {
+                scheduled = true;
+                requestAnimationFrame(() => {
+                    updateButtonPosition();
+                    scheduled = false;
+                });
             }
         }
 
-        window.addEventListener('scroll', updateButtonPosition);
-        updateButtonPosition();
-        function updateButtonPosition() {
-        const rect = center.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+        window.addEventListener('scroll', scheduleUpdate);
+        window.addEventListener('resize', scheduleUpdate);
+        window.addEventListener('load', scheduleUpdate); // Важно вызвать и при загрузке страницы
 
-        if (rect.bottom + 20 <= windowHeight) {
-            buttonsContainer.style.bottom = `${windowHeight - rect.bottom}px`;
-            buttonsContainer.classList.add('at-bottom');
-            } else {
-                buttonsContainer.style.bottom = '20px';
-                buttonsContainer.classList.remove('at-bottom');
-            }
-        }
-
+        updateButtonPosition(); // Первоначальная установка позиции
     }
+
 });
