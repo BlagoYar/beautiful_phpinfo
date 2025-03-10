@@ -14,7 +14,7 @@
 >
 >     htpps://your-domain.com/phpinfo.php?token=ВашТокен
 >    
-> Если защита не нужна, удалите соответсвующий блок кода php.
+> Если защита не нужна, удалите соответсвующий (закомментированный) блок кода php.
 
 
 ![1](https://github.com/user-attachments/assets/df9733d2-f56e-4585-bd20-c14d3a228573)
