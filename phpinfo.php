@@ -21,6 +21,7 @@
     # CertUtil -hashfile token.txt SHA256
 
 //------------------------------------------------------------
+    # Проверка токена через хэш
     // define('NGINX_ERROR',       getenv('NGINX_ERROR'));
 
     // if (empty($_GET['token'])) {
