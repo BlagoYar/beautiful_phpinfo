@@ -13,6 +13,7 @@
     //     unauthorizedResponse();
     // }
 
+//------------------------------------------------------------
     ## Проверка токена через хэш
     ## Создать:
     # echo -n "your-secret-token" | sha256sum
@@ -20,8 +21,6 @@
     # echo your-secret-token > token.txt
     # CertUtil -hashfile token.txt SHA256
 
-//------------------------------------------------------------
-    # Проверка токена через хэш
     // define('NGINX_ERROR',       getenv('NGINX_ERROR'));
 
     // if (empty($_GET['token'])) {
