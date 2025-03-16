@@ -19,14 +19,13 @@
 > ПС. в начале скрипта есть два блока - первый с токеном как есть и с токеном через хэш.
 
 
-![1](https://github.com/user-attachments/assets/df9733d2-f56e-4585-bd20-c14d3a228573)
+![1](https://github.com/user-attachments/assets/378ac91f-bcb0-44ae-9a2c-f3d24e230d4b)
 
 
-![3](https://github.com/user-attachments/assets/ad4c301f-6a87-40fe-997f-a2cd3264da37)
+![2](https://github.com/user-attachments/assets/06d3f84c-ee5d-439c-bc67-1a3bc50fa12c)
 
 
-![2](https://github.com/user-attachments/assets/64d1b555-1a02-458e-bde7-84104091acd1)
-
+![3](https://github.com/user-attachments/assets/80fcfb64-988c-4833-9f3b-e1f48a73c82d)
 
 
 <details>
