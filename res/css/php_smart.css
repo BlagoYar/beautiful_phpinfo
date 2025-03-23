@@ -1,0 +1,140 @@
+@media screen and (hover: none) and (pointer: coarse) {
+@import url('fonts.css');
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    body::before {
+        -webkit-box-shadow: 0px 10px 40px 15px rgba(0, 0, 0, 0.5) !important;
+        -moz-box-shadow: 0px 10px 40px 15px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: 0px 10px 40px 15px rgba(0, 0, 0, 0.5) !important;
+        z-index: 9999;
+        pointer-events: none;
+    }
+    h1 {
+        font-size: calc(16px + 6 * (100vw / 1280)) !important;
+        padding: 7px 0px !important;
+    }
+    h2 {
+        font-size: calc(14px + 6 * (100vw / 128C0)) !important;
+        padding: 5px 0px !important;
+    }
+    table {
+        border-spacing: 10px 10px !important;
+    }
+    td:not(.center table:first-child td) {
+        padding: 0.5vw 1vh !important;
+        border-radius: 3px !important;
+    }
+    td.v {
+        box-shadow: 0 0 3px 1px #000 !important;
+    }
+    td.v {
+        font-size: 0.8em !important;
+        box-shadow: 0 0 3px 1px #000 !important;
+    }
+    tr.h > th {
+        font-size: 0.7em !important;
+        padding: 3px 0 3px 0 !important;
+        border-radius: 3px !important;
+    }
+    #theme-toggle {
+        margin-bottom: 3% !important;
+        bottom: 0%;
+        left: 0.5% !important;
+        width: 35px !important;
+    }
+    #scroll-buttons {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        gap: 50px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    #scroll-buttons.visible {
+        opacity: 1;
+    }
+    .scroll-btn {
+        width: 6em;
+        height: 1.5em;
+        background: var(--bg-scroll-btn);
+        color: var(--btn-scroll-txtclr);
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 0 5px 1px var(--btn-scroll-boxshadow-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        cursor: pointer;
+        transition: background 1s, transform 1s;
+    }
+    .scroll-btn:hover {
+        background: var(--bg-scroll-btn-hover);
+        box-shadow: 0 0 5px 1px var(--btn-scroll-boxshadow-color-hover);
+    /*    transform: scale(1.1);*/
+    }
+    #scroll-buttons button:hover {
+        background: var(--bg-scroll-btn);
+        box-shadow: 0 0 5px 1px var(--btn-scroll-boxshadow-color);
+    }
+    .no-hover #scroll-buttons button:hover {
+        background: var(--bg-scroll-btn-hover);
+    }
+    .no-hover * {
+        pointer-events: none; /* Отключаем hover во время прокрутки */
+    }
+    .center {
+        -webkit-box-shadow: 0px 0px 3px 4px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0px 0px 3px 4px rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 0px 3px 4px rgba(0, 0, 0, 0.8);
+        width: calc(100% - 20px) !important;
+        margin: 10% auto 5% auto !important;
+        border-radius: 10px 10px 5px 5px !important;
+    }
+    .center table:first-child::before {
+        content: "";
+        position: absolute;
+        top: 4% !important;
+        left: 1% !important;
+        right: 1% !important;
+        bottom: 3% !important;
+        border-radius: 10px 10px 0 0 !important;
+        border: 1px dashed #555 !important;
+        pointer-events: none;
+    }
+    .center table:first-child {
+        border-radius: 10px 10px 0 0 !important;
+        -webkit-box-shadow: 0px 30px 40px 10px rgba(0, 0, 0, 0.8);
+        -moz-box-shadow: 0px 30px 40px 10px rgba(0, 0, 0, 0.8);
+        box-shadow: 0px 30px 40px 10px rgba(0, 0, 0, 0.8);
+    }
+    .logo-text {
+        font-size: 2vw;
+    }
+    .p {
+        font-size:3vw !important;
+        text-shadow:0 0px 5px #000, 0px 0 3px #000, 0px 0px 2px #000 !important;
+        padding: 0 0 1vw 0 !important;
+        margin-block-end: 0em !important;
+        marging-bottom: 0px !important;
+    }
+    [data-theme="light"] .disabled-text, [data-theme="light"] .enabled-text, [data-theme="light"] .available-text {
+        border-radius: 3px !important;
+    }
+    [data-theme="light"] .enabled-int, [data-theme="light"] .disabled-int {
+        border-radius: 3px !important;
+    }
+    [data-theme="light"] .enabled-on, [data-theme="light"] .disabled-off, [data-theme="light"] .enabled-ok {
+        border-radius: 3px !important;
+    }
