@@ -35,16 +35,25 @@
         font-size: 0.8em !important;
         box-shadow: 0 0 3px 1px #000 !important;
     }
+     tr.h > th.enabled-mod-bg1 {
+        padding-left: 10px !important;
+    }
     tr.h > th {
         font-size: 0.7em !important;
         padding: 3px 0 3px 0 !important;
         border-radius: 3px !important;
     }
     #theme-toggle {
-        margin-bottom: 3% !important;
+        margin-bottom: 2.5% !important;
         bottom: 0%;
-        left: 0.5% !important;
-        width: 35px !important;
+        left: 1.5% !important;
+        width: 50px !important;
+    }
+    [data-theme="light"] .lightbulb {
+        fill: #FFF !important;
+    }
+    [data-theme="light"] .lightbulb:hover {
+        fill: #000 !important;
     }
     #scroll-buttons {
         position: fixed;
@@ -124,7 +133,6 @@
     }
     .p {
         font-size:3vw !important;
-        text-shadow:0 0px 5px #000, 0px 0 3px #000, 0px 0px 2px #000 !important;
         padding: 0 0 1vw 0 !important;
         margin-block-end: 0em !important;
         marging-bottom: 0px !important;
