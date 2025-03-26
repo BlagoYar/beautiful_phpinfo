@@ -75,7 +75,7 @@
         <link rel="stylesheet" href="<?php echo $css; ?>" type="text/css">
         <script src="<?php echo $jsBtn; ?>"></script>
     <?php endif; ?>
-    <link rel="shortcut icon" href="/res/imgs/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/res/imgs/php_out_favicon.png" type="image/png">
 </head>
 <body>
     <?php
