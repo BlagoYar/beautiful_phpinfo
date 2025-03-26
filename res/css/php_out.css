@@ -33,7 +33,7 @@
     --text-color: #000000;
     --text-color-h1: rgba(255, 140, 0, 0.8);
     --text-color-h2: rgba(255, 255, 135, 0.8);
-    --text-color-p: rgba(240,116,39, 0.8);
+    --text-color-p: #FFF;
     --text-color-tde: #BBB;
     --text-color-tdv: #AAA;
     --text-color-mod: #CCC;
@@ -75,7 +75,7 @@
     --bg-h1: #555;
     --bg-h2: #696969;
     --bg-th: #777;
-    --bg-th-1: #777;
+    --bg-th-1: #AAA;
     --bg-th-2: #DDD;
     --bg-tde: #AAA;
     --bg-tdv: #DDD;
@@ -102,10 +102,10 @@
     --text-color: #000000;
     --text-color-h1: rgba(255, 140, 0, 0.9);
     --text-color-h2: rgba(255, 255, 135, 1);
-    --text-color-p: rgba(240,116,39, 1);
+    --text-color-p: #000;
     --text-color-tde: #222;
     --text-color-tdv: #555;
-    --text-color-mod: #FFF;
+    --text-color-mod: #222;
     --text-color-notext: #909090;
     --text-color-available: #2DAA5A;
     --text-color-avilable-shadow: #2DAA5A;
@@ -289,7 +289,17 @@ h2 {
 [data-theme="light"] tr.h:not(.center table:first-child tr.h) {
     background: var(--bg-center) !important;
 }
+/*  Внутренняя обводка для ячеек
+    td:not(.center table:first-child td)::before {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    right: 2px; bottom: 2px;
+    border: 1px dashed #444;
+    border-radius: inherit;
+    pointer-events: none;*/
 td:not(.center table:first-child td) {
+    position: relative;
     border: none !important;
     border-radius: 5px;
     vertical-align: middle !important;
@@ -302,6 +312,7 @@ th {
     border-radius: 5px !important;
     text-align: center !important;
     font-size: calc(11px + 6 * (100vw / 1280)) !important;
+    font-weight: 500;
     vertical-align: middle !important;
     background: var(--bg-th);
     text-shadow: 0px 0px 1px #000;
@@ -321,6 +332,9 @@ tr.h a[href*="php.net"] img:hover {
  tr.h > th.enabled-mod-bg1 {
     background: var(--bg-th-1) !important;
     color: var(--text-color-mod);
+    font-size: calc(9px + 8*(100vw / 1280)) !important;
+    text-align: left !important;
+    padding: 0.4vw 2vh;
 }
  tr.h > th.enabled-mod-bg2 {
     background: var(--bg-th-2) !important;
@@ -333,6 +347,7 @@ tr.h + tr.h {
     background-color: #444 !important;
 }
 tr.v {
+    display: block;
     background: rgba(43,43,114, 0.5) !important;
     -webkit-box-shadow: 0px 0px 3px 3px rgba(10, 10, 22, 1);
     -moz-box-shadow: 0px 0px 3px 3px rgba(10, 10, 22, 1);
@@ -376,7 +391,7 @@ td.e {
     font-weight: 500;
 }
 td.v {
-    font-size: calc(8px + 9 * (100vw / 1280));
+    font-size: calc(9px + 8 * (100vw / 1280));
     overflow-wrap: anywhere !important;
     white-space: normal !important;
 /*    outline: 1px dashed var(--outline-color);
@@ -402,9 +417,10 @@ td:has(img[alt="Zend logo"]) br {
 td:has(img[alt="Zend logo"]), td:has(p+p+p), td:has(br+br) {
     border-radius: 10px !important;
     border: 1px solid var(--border-desc) !important;
+    background-clip: padding-box;
 }
 tr:has(img[alt="Zend logo"]), tr.v:has(p+p+p), tr.v:has(br+br) {
-    border-radius: 5px !important;
+    border-radius: 10px !important;
     box-shadow: 0 0 4px 3px var(--box-shadow-desc) !important;
 }
 
@@ -565,7 +581,7 @@ tr:has(img[alt="Zend logo"]), tr.v:has(p+p+p), tr.v:has(br+br) {
     border-top: 5px solid var(--border-color-top-logotext) !important;
 }
 .logo-text {
-    font-size: calc(7px + 12 * (100vw / 1280)) !important;
+    font-size: calc(7px + 10 * (100vw / 1280)) !important;
     color: var(--text-color-logo-link) !important;
     text-shadow:0 0 12px var(--text-color-logo-link-shadow);
     font-weight: bold;
@@ -581,7 +597,7 @@ tr:has(img[alt="Zend logo"]), tr.v:has(p+p+p), tr.v:has(br+br) {
     padding: 1vw 0 0.3vw 0;
     font-size: calc(8px + 10 * (100vw / 1280)) !important;
     color: var(--text-color-p);
-    text-shadow:1px 1px 3px #000,0 -1px 3px #000,-1px 0 3px #000, 0px 0px 5px #000;
+    text-shadow: 0px 0px 1px #000;
 }
 .php-logo {
     width: 16vw !important;
@@ -607,10 +623,10 @@ tr:has(img[alt="Zend logo"]), tr.v:has(p+p+p), tr.v:has(br+br) {
     color: var(--text-color-enabled) !important;
     text-shadow: 0 0 1px var(--text-color-enabled-shadow);
 }
-[data-theme="light"] .enabled-int, [data-theme="light"] .enabled-ok, [data-theme="light"] .disabled-int, [data-theme="light"] .enabled-on, .no-text {
+[data-theme="light"] .enabled-int, [data-theme="light"] .enabled-ok, [data-theme="light"] .disabled-int, [data-theme="light"] .enabled-on, .no-text, [data-theme="light"] .disabled-off {
     font-weight: 500;
 }
-[data-theme="light"] .disabled-off, [data-theme="light"]  .enabled-text, [data-theme="light"]  .disabled-text, [data-theme="light"]  .available-text, [data-theme="light"] .enabled-mod {
+[data-theme="light"]  .enabled-text, [data-theme="light"]  .disabled-text, [data-theme="light"]  .available-text, [data-theme="light"] .enabled-mod {
     font-weight: 400;
 }
 [data-theme="light"] .enabled-on, [data-theme="light"] .disabled-off, [data-theme="light"] .enabled-int, [data-theme="light"] .disabled-int {
