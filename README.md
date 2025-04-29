@@ -57,7 +57,7 @@
   <tr>
     <td><center><img src="https://upl.pp.ua/github-phpbeauty_1.jpg" height="400"></center></td>
     <td><center><img src="https://upl.pp.ua/github-phpbeauty_2.jpg" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_3.jpg" height="400"></center></td>
+    <td><center><img src="https://upl.pp.ua/github-phpbeauty_5.jpg" height="400"></center></td>
     <td><center><img src="https://upl.pp.ua/github-phpbeauty_4.jpg" height="400"></center></td>
   </tr>
 </table>
