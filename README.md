@@ -55,10 +55,10 @@
     <th><center></center></th>
   </tr>
   <tr>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_5.jpg" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_6.jpg" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_7.jpg" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_8.jpg" height="400"></center></td>
+    <td><center><img src="https://upl.pp.ua/github-phpbeauty_11.jpg" height="400"></center></td>
+    <td><center><img src="https://upl.pp.ua/github-phpbeauty_22.jpg" height="400"></center></td>
+    <td><center><img src="https://upl.pp.ua/github-phpbeauty_33.jpg" height="400"></center></td>
+    <td><center><img src="https://upl.pp.ua/github-phpbeauty_44.jpg" height="400"></center></td>
   </tr>
 </table>
 
