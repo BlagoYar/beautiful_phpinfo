@@ -56,9 +56,9 @@
   </tr>
   <tr>
     <td><center><img src="https://github.com/user-attachments/assets/3866e8bb-ffbe-4dd5-a105-17321894c374" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_22.jpg" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_33.jpg" height="400"></center></td>
-    <td><center><img src="https://upl.pp.ua/github-phpbeauty_44.jpg" height="400"></center></td>
+    <td><center><img src="https://github.com/user-attachments/assets/ed79e2c1-40ba-4aef-96b5-407896c94c30" height="400"></center></td>
+    <td><center><img src="https://github.com/user-attachments/assets/6e5ea6bd-74ed-4fb8-b8cb-d07dbcce832f" height="400"></center></td>
+    <td><center><img src="https://github.com/user-attachments/assets/c3452d32-0edd-4599-a527-c39bf991ecfb" height="400"></center></td>
   </tr>
 </table>
 
