@@ -56,8 +56,21 @@
     $phpinfo = ob_get_clean();
 
     # Убираем логотип по умолчанию для вставки своего через JS
-    $phpinfo = preg_replace('#<a href="http://www.php.net/"><img [^>]*src="[^"]*"[^>]*></a>#is','<a href="http://www.php.net/">',$phpinfo);
     $phpVersion = PHP_VERSION;
+
+    // Разбираем версию PHP, чтобы получить мажорную версию (например, '8' из '8.2.13')
+    $versionParts = explode('.', $phpVersion);
+    $majorVersion = $versionParts[0];
+
+    // Формируем ссылку на чейнджлог для текущей версии
+    $changelogUrl = "https://www.php.net/ChangeLog-{$majorVersion}.php#{$phpVersion}";
+
+    // Заменяем стандартную ссылку на нашу, добавляя id="php-logo-link" для JavaScript
+    $phpinfo = preg_replace(
+        '#<a href="http://www.php.net/"><img [^>]*src="[^"]*"[^>]*></a>#is',
+        '<a id="php-logo-link" href="' . $changelogUrl . '">',
+        $phpinfo
+    );
 ?>
 
 <!DOCTYPE html>
