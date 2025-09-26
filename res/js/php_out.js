@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Замена логотипа
-    const linkElement = document.querySelector('a[href="http://www.php.net/"]');
+    const linkElement = document.querySelector('#php-logo-link');
     const versionHeader = document.querySelector('h1.p');
     if (linkElement && versionHeader) {
         linkElement.setAttribute('target', '_blank');
@@ -66,3 +66,4 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("resize", resizeButton);
     window.addEventListener("load", resizeButton);
 });
+
