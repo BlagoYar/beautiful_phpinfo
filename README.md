@@ -1,6 +1,6 @@
 <h1 align="center" color="#AFFFAF">Beauty and Pretty phpinfo()</h1>
 
-Красивое оформление для буферизированного вывода `<?php phpinfo(); ?>`
+Красивое "резиновое" оформление для буферизированного вывода `<?php phpinfo(); ?>`
 
 
 
